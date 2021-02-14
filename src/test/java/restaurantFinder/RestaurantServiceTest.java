@@ -34,25 +34,6 @@ class RestaurantServiceTest {
     }
     //<<<<<<<<<<<<<<<<<<<<SEARCHING>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-    //>>>>>>>>>>>>>>>>>>>>>IS RESTAURANT OPEN OR CLOSE<<<<<<<<<<<<<<<<<<<<<
-    @Test
-    public void Is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time() throws restaurantNotFoundException {
-        Restaurant restaurant1 = Mockito.spy(service.findRestaurantByName("Amelie's cafe"));
-        Mockito.doReturn(LocalTime.parse("13:00:00")).when(restaurant1).getCurrentTime();
-        assertTrue(restaurant1.isRestaurantOpen());
-    }
-
-    @Test
-    public void Is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time() throws restaurantNotFoundException {
-        Restaurant restaurant1 = Mockito.spy(service.findRestaurantByName("Amelie's cafe"));
-        Mockito.doReturn(LocalTime.parse("09:00:00")).when(restaurant1).getCurrentTime();
-        assertFalse(restaurant1.isRestaurantOpen());
-    }
-    //<<<<<<<<<<<<<<<<<<<<<IS RESTAURANT OPEN OR CLOSE>>>>>>>>>>>>>>>>>>>>>
-
-
-
-
     //>>>>>>>>>>>>>>>>>>>>>>ADMIN: ADDING & REMOVING RESTAURANTS<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
     public void remove_restaurant_should_reduce_list_of_restaurants_size_by_1() throws restaurantNotFoundException {
